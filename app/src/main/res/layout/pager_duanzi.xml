@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+    <!--<ListView-->
+        <!--android:id="@+id/listview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/pull_refresh_list"
@@ -24,6 +23,7 @@
         android:headerDividersEnabled="false"
         ptr:ptrMode="both"
         android:smoothScrollbar="true" />
+
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="wrap_content"

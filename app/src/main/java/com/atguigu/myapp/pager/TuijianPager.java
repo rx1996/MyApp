@@ -16,17 +16,12 @@ import com.atguigu.myapp.activity.ShowImageAndGifActivity;
 import com.atguigu.myapp.adapter.TuijianAdapter;
 import com.atguigu.myapp.base.BaseFragment;
 import com.atguigu.myapp.bean.TuijianBean;
-import com.atguigu.myapp.fragment.ShopFenleiFragment;
 import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.xutils.common.Callback;
-import org.xutils.common.util.LogUtil;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
-
-import java.lang.ref.PhantomReference;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -46,10 +41,13 @@ public class TuijianPager extends BaseFragment {
     ProgressBar progressbar;
     @InjectView(R.id.tv_nomedia)
     TextView tvNomedia;
+    @InjectView(R.id.pull_refresh_list)
+    PullToRefreshListView pullRefreshList;
 
     private String url = "http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-20.json";
 
     private TuijianAdapter adapter;
+
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.fragment_tuijian, null);
@@ -61,20 +59,34 @@ public class TuijianPager extends BaseFragment {
 
 
                 TuijianBean.ListBean listEntity = adapter.getItem(position);
-                if(listEntity !=null ){
+                if (listEntity != null) {
                     //3.传递视频列表
-                    Intent intent = new Intent(context,ShowImageAndGifActivity.class);
-                    if(listEntity.getType().equals("gif")){
+                    Intent intent = new Intent(context, ShowImageAndGifActivity.class);
+                    if (listEntity.getType().equals("gif")) {
                         String url = listEntity.getGif().getImages().get(0);
-                        intent.putExtra("url",url);
+                        intent.putExtra("url", url);
                         context.startActivity(intent);
-                    }else if(listEntity.getType().equals("image")){
+                    } else if (listEntity.getType().equals("image")) {
                         String url = listEntity.getImage().getBig().get(0);
-                        intent.putExtra("url",url);
+                        intent.putExtra("url", url);
                         context.startActivity(intent);
                     }
                 }
 
+
+            }
+        });
+        listview = pullRefreshList.getRefreshableView();
+        //设置下拉和上拉刷新的监听
+        pullRefreshList.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                Log.e("TAG", "下拉刷新==");
+                OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 
             }
         });
@@ -86,17 +98,20 @@ public class TuijianPager extends BaseFragment {
         super.initData();
         OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
     }
+
     class MyStringCallback extends StringCallback {
 
         @Override
         public void onError(Call call, Exception e, int id) {
-            Log.e("TAG", "请求失败==" + e.getMessage() );
+            Log.e("TAG", "请求失败==" + e.getMessage());
         }
 
         @Override
         public void onResponse(String response, int id) {
             Log.e("TAG", "请求成功==");
             processData(response);
+            //结束下来刷新
+            pullRefreshList.onRefreshComplete();
 
         }
     }
@@ -107,13 +122,13 @@ public class TuijianPager extends BaseFragment {
         List<TuijianBean.ListBean> datas = netAudioBean.getList();
         String text = datas.get(0).getText();
 //        Toast.makeText(context, "text=="+text, Toast.LENGTH_SHORT).show();
-        if(datas != null && datas.size() >0){
+        if (datas != null && datas.size() > 0) {
             //有数据
             tvNomedia.setVisibility(View.GONE);
             //设置适配器
-            adapter = new TuijianAdapter(context,datas);
+            adapter = new TuijianAdapter(context, datas);
             listview.setAdapter(adapter);
-        }else{
+        } else {
             //没有数据
             tvNomedia.setVisibility(View.VISIBLE);
         }

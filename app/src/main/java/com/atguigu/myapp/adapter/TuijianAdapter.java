@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atguigu.myapp.R;
+import com.atguigu.myapp.bean.DuanziBean;
 import com.atguigu.myapp.bean.TuijianBean;
 import com.atguigu.myapp.utils.Utils;
 import com.bumptech.glide.Glide;
@@ -60,6 +61,8 @@ public class TuijianAdapter extends BaseAdapter{
         this.context = context;
         this.datas = datas;
     }
+
+
 
     @Override
     public int getItemViewType(int position) {
