@@ -5,6 +5,9 @@ import android.os.Process;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.atguigu.myapp.R;
@@ -17,23 +20,37 @@ import com.atguigu.myapp.pager.TuijianPager;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.rg_main)
+    @Bind(R.id.frameLayout)
+    FrameLayout frameLayout;
+    @Bind(R.id.rb_shop)
+    RadioButton rbShop;
+    @Bind(R.id.rb_magazine)
+    RadioButton rbMagazine;
+    @Bind(R.id.rb_da_ren)
+    RadioButton rbDaRen;
+    @Bind(R.id.rb_tuijian)
+    RadioButton rbTuijian;
+    @Bind(R.id.rb_duanzi)
+    RadioButton rbDuanzi;
+    @Bind(R.id.rg_main)
     RadioGroup rgMain;
+//    @Bind(R.id.activity_main)
+//    LinearLayout activityMain;
+
     private ArrayList<BaseFragment> fragments;
     private int position = 0;
     private Fragment tempFragment;
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initFragment();
         rgMain.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
         rgMain.check(R.id.rb_shop);
@@ -63,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             switchFragment(currentFragment);
         }
     }
-
     private void switchFragment(Fragment currentFragment) {
         if(currentFragment != tempFragment){//不是同一个
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

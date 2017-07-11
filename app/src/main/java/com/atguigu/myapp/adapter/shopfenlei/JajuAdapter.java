@@ -14,8 +14,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2017/7/7.
@@ -54,6 +54,7 @@ public class JajuAdapter extends RecyclerView.Adapter<JajuAdapter.ViewHolder> {
                 .into(holder.ivJiajuImage);
     }
 
+
     @Override
     public int getItemCount() {
         return items == null ? 0 : items.size();
@@ -61,20 +62,20 @@ public class JajuAdapter extends RecyclerView.Adapter<JajuAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        @InjectView(R.id.iv_jiaju_image)
+        @Bind(R.id.iv_jiaju_image)
         ImageView ivJiajuImage;
-        @InjectView(R.id.tv_jiaju_name)
+        @Bind(R.id.tv_jiaju_name)
         TextView tvJiajuName;
-        @InjectView(R.id.tv_jiaju)
+        @Bind(R.id.tv_jiaju)
         TextView tvJiaju;
-        @InjectView(R.id.tv_price)
+        @Bind(R.id.tv_price)
         TextView tvPrice;
-        @InjectView(R.id.tv_like)
+        @Bind(R.id.tv_like)
         TextView tvLike;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

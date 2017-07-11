@@ -165,4 +165,11 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
+    <GridView
+        android:id="@+id/gv"
+        android:numColumns="auto_fit"
+        android:layout_below="@id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </RelativeLayout>

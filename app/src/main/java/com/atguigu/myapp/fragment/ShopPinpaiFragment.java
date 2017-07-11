@@ -18,8 +18,8 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.net.URL;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import okhttp3.Call;
 
 /**
@@ -28,7 +28,7 @@ import okhttp3.Call;
 
 public class ShopPinpaiFragment extends BaseFragment {
 
-    @InjectView(R.id.lv_pinpai)
+    @Bind(R.id.lv_pinpai)
     ListView lvPinpai;
     private String url = "http://mobile.iliangcang.com/brand/brandList?app_key=Android&count=20&page=1&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
     private PinpaiAdapter adapter;
@@ -36,7 +36,7 @@ public class ShopPinpaiFragment extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.fragment_pinpai, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -68,6 +68,6 @@ public class ShopPinpaiFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 }

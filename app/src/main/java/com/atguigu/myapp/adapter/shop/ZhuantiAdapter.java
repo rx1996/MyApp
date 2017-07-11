@@ -14,8 +14,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2017/7/7.
@@ -68,13 +68,13 @@ public class ZhuantiAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.iv_zhuanti_image)
+        @Bind(R.id.iv_zhuanti_image)
         ImageView ivZhuantiImage;
-        @InjectView(R.id.tv_name)
+        @Bind(R.id.tv_name)
         TextView tvName;
 
         ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

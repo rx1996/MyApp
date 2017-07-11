@@ -20,7 +20,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2017/7/7.
@@ -90,7 +89,7 @@ public class DarenAdapter extends BaseAdapter {
         TextView tvDarenName;
 //        @InjectView(R.id.tv_daren_content)
         TextView tvDarenContent;
-        @InjectView(R.id.ll_daren_item)
+//        @InjectView(R.id.ll_daren_item)
         LinearLayout llItem;
 
 //        ViewHolder(View view) {

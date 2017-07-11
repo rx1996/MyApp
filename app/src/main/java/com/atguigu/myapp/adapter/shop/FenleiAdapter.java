@@ -14,8 +14,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2017/7/7.
@@ -66,11 +66,11 @@ public class FenleiAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.iv_fenlei_image)
+        @Bind(R.id.iv_fenlei_image)
         ImageView ivFenleiImage;
 
         ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

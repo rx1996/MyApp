@@ -23,7 +23,7 @@ import com.atguigu.myapp.fragment.ShopZhuantiFragment;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 
 /**
@@ -33,15 +33,15 @@ import butterknife.OnClick;
 public class ShopPager extends BaseFragment {
 
 
-    @InjectView(R.id.ib_title_search)
+    @Bind(R.id.ib_title_search)
     ImageButton ibTitleSearch;
-    @InjectView(R.id.tv_title)
+    @Bind(R.id.tv_title)
     TextView tvTitle;
-    @InjectView(R.id.ib_shopping_cart)
+    @Bind(R.id.ib_shopping_cart)
     ImageButton ibShoppingCart;
-    @InjectView(R.id.tablayout)
+    @Bind(R.id.tablayout)
     TabLayout tablayout;
-    @InjectView(R.id.view_pager)
+    @Bind(R.id.view_pager)
     ViewPager viewPager;
 
     private ArrayList<BaseFragment> fragments;
@@ -50,7 +50,7 @@ public class ShopPager extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.pager_shop, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -74,7 +74,7 @@ public class ShopPager extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 
     @OnClick({R.id.ib_title_search, R.id.ib_shopping_cart})

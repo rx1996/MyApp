@@ -1,8 +1,11 @@
 package com.atguigu.myapp.fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
@@ -15,8 +18,8 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import okhttp3.Call;
 
 /**
@@ -25,16 +28,16 @@ import okhttp3.Call;
 
 public class ShopFenleiFragment extends BaseFragment {
 
-    private String url = "http://mobile.iliangcang.com/goods/goodsCategory?app_key=Android&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
-    @InjectView(R.id.gv)
+    @Bind(R.id.gv)
     GridView gv;
+    private String url = "http://mobile.iliangcang.com/goods/goodsCategory?app_key=Android&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
 
     private FenleiAdapter adapter;
 
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.fragment_fenlei, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -45,15 +48,17 @@ public class ShopFenleiFragment extends BaseFragment {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(context,FenleiContentActivity.class));
+                startActivity(new Intent(context, FenleiContentActivity.class));
             }
         });
     }
+
+
     class MyStringCallback extends StringCallback {
 
         @Override
         public void onError(Call call, Exception e, int id) {
-            Log.e("TAG", "请求失败==" + e.getMessage() );
+            Log.e("TAG", "请求失败==" + e.getMessage());
         }
 
         @Override
@@ -65,14 +70,14 @@ public class ShopFenleiFragment extends BaseFragment {
     }
 
     private void processData(String json) {
-        ShopFenleiBean bean = new Gson().fromJson(json,ShopFenleiBean.class);
-        adapter = new FenleiAdapter(context,bean.getData().getItems());
+        ShopFenleiBean bean = new Gson().fromJson(json, ShopFenleiBean.class);
+        adapter = new FenleiAdapter(context, bean.getData().getItems());
         gv.setAdapter(adapter);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 }

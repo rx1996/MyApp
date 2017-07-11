@@ -25,7 +25,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import okhttp3.Call;
 
@@ -35,13 +35,13 @@ import okhttp3.Call;
 
 public class DarenPager extends BaseFragment {
 
-    @InjectView(R.id.gv)
+    @Bind(R.id.gv)
     GridView gv;
-    @InjectView(R.id.ib_title_search)
+    @Bind(R.id.ib_title_search)
     ImageButton ibTitleSearch;
-    @InjectView(R.id.tv_title)
+    @Bind(R.id.tv_title)
     TextView tvTitle;
-    @InjectView(R.id.ib_daren_fenlei)
+    @Bind(R.id.ib_daren_fenlei)
     ImageButton ibDarenFenlei;
 
     private DarenAdapter adapter;
@@ -59,7 +59,7 @@ public class DarenPager extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.pager_daren, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         ibDarenFenlei.setTag(DAREN_FENLEI);
         return view;
     }
@@ -94,7 +94,7 @@ public class DarenPager extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 
 

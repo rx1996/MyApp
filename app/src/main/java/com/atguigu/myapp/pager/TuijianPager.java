@@ -25,7 +25,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import okhttp3.Call;
 
 /**
@@ -35,13 +35,13 @@ import okhttp3.Call;
 public class TuijianPager extends BaseFragment {
 
 
-    @InjectView(R.id.listview)
+    @Bind(R.id.listview)
     ListView listview;
-    @InjectView(R.id.progressbar)
+    @Bind(R.id.progressbar)
     ProgressBar progressbar;
-    @InjectView(R.id.tv_nomedia)
+    @Bind(R.id.tv_nomedia)
     TextView tvNomedia;
-    @InjectView(R.id.pull_refresh_list)
+    @Bind(R.id.pull_refresh_list)
     PullToRefreshListView pullRefreshList;
 
     private String url = "http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-20.json";
@@ -51,7 +51,7 @@ public class TuijianPager extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.fragment_tuijian, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         //设置点击事件
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -140,6 +140,6 @@ public class TuijianPager extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 }

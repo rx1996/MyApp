@@ -8,10 +8,11 @@ import java.util.List;
 
 public class ItemBean {
 
+
     /**
-     * meta : {"status":0,"server_time":"2017-07-10 18:49:18","account_id":0,"cost":0.014562845230103,"errdata":null,"errmsg":""}
+     * meta : {"status":0,"server_time":"2017-07-10 21:49:09","account_id":0,"cost":0.012950897216797,"errdata":null,"errmsg":""}
      * version : 1
-     * data : {"has_more":false,"num_items":"2","items":{"user_id":"12596","user_name":"山本耀司","is_daren":"1","email":"yini.ma@yohjiyamamoto.co.jp","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499683758"},"user_desc":"日本时装设计师","friend":"0","like_count":"0","recommendation_count":"3","following_count":"2","followed_count":"20735","template_id":"0","users":[{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499683758"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499683758"},"user_desc":""}]}}
+     * data : {"has_more":false,"num_items":"2","items":{"user_id":"12596","user_name":"山本耀司","is_daren":"1","email":"yini.ma@yohjiyamamoto.co.jp","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499694549"},"user_desc":"日本时装设计师","friend":"0","like_count":"0","recommendation_count":"3","following_count":"2","followed_count":"20735","template_id":"0","users":[{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499694549"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499694549"},"user_desc":""}]}}
      */
 
     private MetaBean meta;
@@ -45,9 +46,9 @@ public class ItemBean {
     public static class MetaBean {
         /**
          * status : 0
-         * server_time : 2017-07-10 18:49:18
+         * server_time : 2017-07-10 21:49:09
          * account_id : 0
-         * cost : 0.014562845230103
+         * cost : 0.012950897216797
          * errdata : null
          * errmsg :
          */
@@ -112,7 +113,7 @@ public class ItemBean {
         /**
          * has_more : false
          * num_items : 2
-         * items : {"user_id":"12596","user_name":"山本耀司","is_daren":"1","email":"yini.ma@yohjiyamamoto.co.jp","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499683758"},"user_desc":"日本时装设计师","friend":"0","like_count":"0","recommendation_count":"3","following_count":"2","followed_count":"20735","template_id":"0","users":[{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499683758"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499683758"},"user_desc":""}]}
+         * items : {"user_id":"12596","user_name":"山本耀司","is_daren":"1","email":"yini.ma@yohjiyamamoto.co.jp","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499694549"},"user_desc":"日本时装设计师","friend":"0","like_count":"0","recommendation_count":"3","following_count":"2","followed_count":"20735","template_id":"0","users":[{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499694549"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499694549"},"user_desc":""}]}
          */
 
         private boolean has_more;
@@ -149,7 +150,7 @@ public class ItemBean {
              * user_name : 山本耀司
              * is_daren : 1
              * email : yini.ma@yohjiyamamoto.co.jp
-             * user_image : {"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499683758"}
+             * user_image : {"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499694549"}
              * user_desc : 日本时装设计师
              * friend : 0
              * like_count : 0
@@ -157,7 +158,7 @@ public class ItemBean {
              * following_count : 2
              * followed_count : 20735
              * template_id : 0
-             * users : [{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499683758"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499683758"},"user_desc":""}]
+             * users : [{"user_id":"20851","user_name":"Nicola\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499694549"},"user_desc":""},{"user_id":"17962","user_name":"Briere\r\n","is_daren":"0","user_image":{"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/17/17962.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/17/17962.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/17/17962.jpg?t=1499694549"},"user_desc":""}]
              */
 
             private String user_id;
@@ -281,9 +282,9 @@ public class ItemBean {
             public static class UserImageBean {
                 /**
                  * self_img : 1
-                 * orig : http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499683758
-                 * mid : http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499683758
-                 * tmb : http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499683758
+                 * orig : http://imgs-qn.iliangcang.com/ware/userhead/orig/2/12/12596.jpg?t=1499694549
+                 * mid : http://imgs-qn.iliangcang.com/ware/userhead/mid/2/12/12596.jpg?t=1499694549
+                 * tmb : http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/12/12596.jpg?t=1499694549
                  */
 
                 private String self_img;
@@ -330,7 +331,7 @@ public class ItemBean {
                  * user_name : Nicola
 
                  * is_daren : 0
-                 * user_image : {"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499683758","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499683758","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499683758"}
+                 * user_image : {"self_img":"1","orig":"http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499694549","mid":"http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499694549","tmb":"http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499694549"}
                  * user_desc :
                  */
 
@@ -383,9 +384,9 @@ public class ItemBean {
                 public static class UserImageBeanX {
                     /**
                      * self_img : 1
-                     * orig : http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499683758
-                     * mid : http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499683758
-                     * tmb : http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499683758
+                     * orig : http://imgs-qn.iliangcang.com/ware/userhead/orig/2/20/20851.jpg?t=1499694549
+                     * mid : http://imgs-qn.iliangcang.com/ware/userhead/mid/2/20/20851.jpg?t=1499694549
+                     * tmb : http://imgs-qn.iliangcang.com/ware/userhead/tmb/2/20/20851.jpg?t=1499694549
                      */
 
                     private String self_img;

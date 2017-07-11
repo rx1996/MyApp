@@ -2,6 +2,7 @@ package com.atguigu.myapp.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,53 +12,95 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.myapp.R;
+import com.atguigu.myapp.adapter.shop.FenleiAdapter;
+import com.atguigu.myapp.bean.ShopFenleiBean;
+import com.atguigu.myapp.bean.daren.ItemBean;
+import com.atguigu.myapp.fragment.ShopFenleiFragment;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 public class PeopleInfoActivity extends AppCompatActivity {
 
-    @InjectView(R.id.iv_people_image)
+    @Bind(R.id.iv_people_image)
     ImageView ivPeopleImage;
-    @InjectView(R.id.tv_people_name)
+    @Bind(R.id.tv_people_name)
     TextView tvPeopleName;
-    @InjectView(R.id.tv_people_work)
+    @Bind(R.id.tv_people_work)
     TextView tvPeopleWork;
-    @InjectView(R.id.ll_jianjie)
+    @Bind(R.id.ll_jianjie)
     LinearLayout llJianjie;
-    @InjectView(R.id.bt_letter)
+    @Bind(R.id.bt_letter)
     Button btLetter;
-    @InjectView(R.id.bt_follow)
+    @Bind(R.id.bt_follow)
     Button btFollow;
-    @InjectView(R.id.rl_xinxi)
+    @Bind(R.id.rl_xinxi)
     RelativeLayout rlXinxi;
-    @InjectView(R.id.tv_like_num)
+    @Bind(R.id.tv_like_num)
     TextView tvLikeNum;
-    @InjectView(R.id.ll_like)
+    @Bind(R.id.ll_like)
     LinearLayout llLike;
-    @InjectView(R.id.tv_recommend_num)
+    @Bind(R.id.tv_recommend_num)
     TextView tvRecommendNum;
-    @InjectView(R.id.ll_recommend)
+    @Bind(R.id.ll_recommend)
     LinearLayout llRecommend;
-    @InjectView(R.id.tv_guanzhu_num)
+    @Bind(R.id.tv_guanzhu_num)
     TextView tvGuanzhuNum;
-    @InjectView(R.id.ll_guanzhu)
+    @Bind(R.id.ll_guanzhu)
     LinearLayout llGuanzhu;
-    @InjectView(R.id.tv_fans_num)
+    @Bind(R.id.tv_fans_num)
     TextView tvFansNum;
-    @InjectView(R.id.ll_fans)
+    @Bind(R.id.ll_fans)
     LinearLayout llFans;
-    @InjectView(R.id.linearLayout)
+    @Bind(R.id.linearLayout)
     LinearLayout linearLayout;
-    @InjectView(R.id.activity_people_info)
+    @Bind(R.id.activity_people_info)
     RelativeLayout activityPeopleInfo;
 
+    private String url = "http://mobile.iliangcang.com/user/masterFollow?app_key=Android&count=12&owner_id=12596&page=1&sig=5715DFAE35D85EA29846D090DBBF8753%7C557744010558468&v=1.0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_info);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
+        OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
+    }
+    class MyStringCallback extends StringCallback {
+
+        @Override
+        public void onError(Call call, Exception e, int id) {
+            Log.e("TAG", "请求失败==" + e.getMessage() );
+        }
+
+        @Override
+        public void onResponse(String response, int id) {
+            Log.e("TAG", "请求成功==");
+            processData(response);
+
+        }
+    }
+
+    private void processData(String json) {
+        ItemBean bean = new Gson().fromJson(json,ItemBean.class);
+        tvPeopleName.setText(bean.getData().getItems().getUser_name());
+        tvPeopleWork.setText(bean.getData().getItems().getUser_desc());
+        Glide.with(this)
+                .load(bean.getData().getItems().getUser_image().getOrig())
+                .placeholder(R.drawable.ic_launcher)
+                .error(R.drawable.ic_launcher)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(ivPeopleImage);
+        tvLikeNum.setText(bean.getData().getItems().getLike_count());
+        tvRecommendNum.setText(bean.getData().getItems().getRecommendation_count());
+        tvGuanzhuNum.setText(bean.getData().getItems().getFollowing_count());
+        tvFansNum.setText(bean.getData().getItems().getFollowed_count());
     }
 
     @OnClick({R.id.ll_like, R.id.ll_recommend, R.id.ll_guanzhu, R.id.ll_fans})

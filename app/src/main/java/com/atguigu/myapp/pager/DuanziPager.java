@@ -24,7 +24,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import okhttp3.Call;
 
 /**
@@ -34,13 +34,13 @@ import okhttp3.Call;
 public class DuanziPager extends BaseFragment {
 
 
-//    @InjectView(R.id.listview)
+//    @Bind(R.id.listview)
     ListView listview;
-    @InjectView(R.id.progressbar)
+    @Bind(R.id.progressbar)
     ProgressBar progressbar;
-    @InjectView(R.id.tv_nomedia)
+    @Bind(R.id.tv_nomedia)
     TextView tvNomedia;
-    @InjectView(R.id.pull_refresh_list)
+    @Bind(R.id.pull_refresh_list)
     PullToRefreshListView pullRefreshList;
 
     private String url = "http://s.budejie.com/topic/tag-topic/64/hot/budejie-android-6.6.3/0-20.json";
@@ -49,7 +49,7 @@ public class DuanziPager extends BaseFragment {
     @Override
     public View initView() {
         View view = View.inflate(context, R.layout.pager_duanzi, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         listview = pullRefreshList.getRefreshableView();
         //设置下拉和上拉刷新的监听
         pullRefreshList.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -115,6 +115,6 @@ public class DuanziPager extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 }

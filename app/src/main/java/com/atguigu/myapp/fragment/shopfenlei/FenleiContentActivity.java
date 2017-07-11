@@ -21,25 +21,25 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import okhttp3.Call;
 
 public class FenleiContentActivity extends AppCompatActivity {
 
-    @InjectView(R.id.ib_title_back)
+    @Bind(R.id.ib_title_back)
     ImageButton ibTitleBack;
-    @InjectView(R.id.tv_title)
+    @Bind(R.id.tv_title)
     TextView tvTitle;
-    @InjectView(R.id.ib_shopping_cart)
+    @Bind(R.id.ib_shopping_cart)
     ImageButton ibShoppingCart;
-    @InjectView(R.id.tv_screen)
+    @Bind(R.id.tv_screen)
     TextView tvScreen;
-    @InjectView(R.id.iv_screen)
+    @Bind(R.id.iv_screen)
     ImageView ivScreen;
-    @InjectView(R.id.ll_screen)
+    @Bind(R.id.ll_screen)
     LinearLayout llScreen;
-    @InjectView(R.id.recyclerview)
+    @Bind(R.id.recyclerview)
     RecyclerView recyclerview;
 
     private String url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=Android&cat_code=0045&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0";
@@ -49,7 +49,7 @@ public class FenleiContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fenlei_content);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initData();
     }
 
