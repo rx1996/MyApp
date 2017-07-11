@@ -14,6 +14,8 @@ import com.atguigu.myapp.R;
 import com.atguigu.myapp.base.BaseFragment;
 import com.atguigu.myapp.pager.DarenPager;
 import com.atguigu.myapp.pager.DuanziPager;
+import com.atguigu.myapp.pager.FenxiangPager;
+import com.atguigu.myapp.pager.GerenPager;
 import com.atguigu.myapp.pager.MagazinePager;
 import com.atguigu.myapp.pager.ShopPager;
 import com.atguigu.myapp.pager.TuijianPager;
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rbMagazine;
     @Bind(R.id.rb_da_ren)
     RadioButton rbDaRen;
-    @Bind(R.id.rb_tuijian)
-    RadioButton rbTuijian;
-    @Bind(R.id.rb_duanzi)
-    RadioButton rbDuanzi;
+    @Bind(R.id.rb_geren)
+    RadioButton rbGeren;
+    @Bind(R.id.rb_fenxiang)
+    RadioButton rbFenxiang;
     @Bind(R.id.rg_main)
     RadioGroup rgMain;
 //    @Bind(R.id.activity_main)
@@ -69,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.rb_da_ren:
                     position = 2;
                     break;
-                case R.id.rb_tuijian:
+                case R.id.rb_fenxiang:
                     position = 3;
                     break;
-                case R.id.rb_duanzi:
+                case R.id.rb_geren:
                     position = 4;
                     break;
             }
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new ShopPager());
         fragments.add(new MagazinePager());
         fragments.add(new DarenPager());
-        fragments.add(new TuijianPager());
-        fragments.add(new DuanziPager());
+        fragments.add(new FenxiangPager());
+        fragments.add(new GerenPager());
     }
 }

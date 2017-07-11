@@ -52,22 +52,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/rb_tuijian"
+            android:id="@+id/rb_fenxiang"
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5dp"
             android:gravity="center"
-            android:text="推荐"
+            android:text="分享"
+            android:drawableTop="@drawable/rb_fenxiang_drawabletop_selector"
             android:textColor="@drawable/rb_shop_textcolor_selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/rb_duanzi"
+            android:id="@+id/rb_geren"
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5dp"
             android:gravity="center"
-            android:text="段子"
+            android:drawableTop="@drawable/rb_geren_drawabletop_selector"
+            android:text="个人中心"
             android:textColor="@drawable/rb_shop_textcolor_selector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
