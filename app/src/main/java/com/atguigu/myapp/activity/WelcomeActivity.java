@@ -33,6 +33,7 @@ public class WelcomeActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+            finish();
         }
     };
 

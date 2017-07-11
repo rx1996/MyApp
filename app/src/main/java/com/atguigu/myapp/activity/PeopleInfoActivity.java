@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -12,10 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.myapp.R;
+import com.atguigu.myapp.adapter.daren.LikeAdapter;
 import com.atguigu.myapp.adapter.shop.FenleiAdapter;
-import com.atguigu.myapp.bean.ShopFenleiBean;
+import com.atguigu.myapp.bean.TuijianBean;
 import com.atguigu.myapp.bean.daren.ItemBean;
-import com.atguigu.myapp.fragment.ShopFenleiFragment;
+import com.atguigu.myapp.bean.daren.LikeBean;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
@@ -26,6 +28,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
+
+import static android.R.attr.id;
 
 public class PeopleInfoActivity extends AppCompatActivity {
 
@@ -63,20 +67,30 @@ public class PeopleInfoActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     @Bind(R.id.activity_people_info)
     RelativeLayout activityPeopleInfo;
+    @Bind(R.id.gv)
+    GridView gv;
+    private String id;
 
-    private String url = "http://mobile.iliangcang.com/user/masterFollow?app_key=Android&count=12&owner_id=12596&page=1&sig=5715DFAE35D85EA29846D090DBBF8753%7C557744010558468&v=1.0";
+    private LikeAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_info);
         ButterKnife.bind(this);
+        id = getIntent().getStringExtra("uid");
+        String url = "http://mobile.iliangcang.com/user/masterFollow?app_key=Android&count=12&owner_id="+id+"&page=1&sig=5715DFAE35D85EA29846D090DBBF8753%7C557744010558468&v=1.0";
+        getDataFromNet(url);
+    }
+
+    private void getDataFromNet(String url) {
         OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
     }
+
     class MyStringCallback extends StringCallback {
 
         @Override
         public void onError(Call call, Exception e, int id) {
-            Log.e("TAG", "请求失败==" + e.getMessage() );
+            Log.e("TAG", "请求失败==" + e.getMessage());
         }
 
         @Override
@@ -88,7 +102,7 @@ public class PeopleInfoActivity extends AppCompatActivity {
     }
 
     private void processData(String json) {
-        ItemBean bean = new Gson().fromJson(json,ItemBean.class);
+        ItemBean bean = new Gson().fromJson(json, ItemBean.class);
         tvPeopleName.setText(bean.getData().getItems().getUser_name());
         tvPeopleWork.setText(bean.getData().getItems().getUser_desc());
         Glide.with(this)
@@ -107,10 +121,14 @@ public class PeopleInfoActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_like:
-                Toast.makeText(PeopleInfoActivity.this, "喜欢", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(PeopleInfoActivity.this, "喜欢", Toast.LENGTH_SHORT).show();
+                String likeUrl = "http://mobile.iliangcang.com/user/masterLike?app_key=Android&count=10&owner_id=85&page=1&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
+                OkHttpUtils.get().url(likeUrl).build().execute(new LikeCallback());
                 break;
             case R.id.ll_recommend:
-                Toast.makeText(PeopleInfoActivity.this, "推荐", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(PeopleInfoActivity.this, "推荐", Toast.LENGTH_SHORT).show();
+                String TuijianUrl = "http://mobile.iliangcang.com/user/masterListInfo?app_key=Android&count=10&owner_id=85&page=1&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
+                OkHttpUtils.get().url(TuijianUrl).build().execute(new LikeCallback());
                 break;
             case R.id.ll_guanzhu:
                 Toast.makeText(PeopleInfoActivity.this, "关注", Toast.LENGTH_SHORT).show();
@@ -119,5 +137,27 @@ public class PeopleInfoActivity extends AppCompatActivity {
                 Toast.makeText(PeopleInfoActivity.this, "粉丝", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    private
+    class LikeCallback extends StringCallback {
+
+        @Override
+        public void onError(Call call, Exception e, int id) {
+            Log.e("TAG", "请求失败==" + e.getMessage());
+        }
+
+        @Override
+        public void onResponse(String response, int id) {
+            Log.e("TAG", "请求成功==");
+            processData1(response);
+
+        }
+    }
+
+    private void processData1(String json) {
+        LikeBean bean = new Gson().fromJson(json, LikeBean.class);
+        adapter = new LikeAdapter(this, bean.getData().getItems().getGoods());
+        gv.setAdapter(adapter);
     }
 }

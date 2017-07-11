@@ -50,7 +50,7 @@ public class DarenAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.item_daren, null);
@@ -63,7 +63,7 @@ public class DarenAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        ShouyeBean.DataBean.ItemsBean bean = items.get(position);
+        final ShouyeBean.DataBean.ItemsBean bean = items.get(position);
         viewHolder.tvDarenName.setText(bean.getUsername());
         viewHolder.tvDarenContent.setText(bean.getDuty());
         Glide.with(context)
@@ -75,7 +75,9 @@ public class DarenAdapter extends BaseAdapter {
         viewHolder.llItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context,PeopleInfoActivity.class));
+                Intent intent = new Intent(context,PeopleInfoActivity.class);
+                intent.putExtra("uid",items.get(position).getUid());
+                context.startActivity(intent);
             }
         });
         return convertView;
