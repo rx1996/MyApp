@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="500dp"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            app:layout_widthPercent="50%"
+            android:id="@+id/image1"
+            android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_below="@id/image1"
+            app:layout_widthPercent="50%"
+            android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_toRightOf="@id/image1"
+            app:layout_widthPercent="50%"
+            android:id="@+id/image3"
+            android:src="@mipmap/ic_launcher" />
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            android:layout_toRightOf="@id/image1"
+            android:layout_below="@id/image3"
+            app:layout_widthPercent="50%"
+            android:id="@+id/image4"
+            android:src="@mipmap/ic_launcher" />
+
+
+</android.support.percent.PercentRelativeLayout>
