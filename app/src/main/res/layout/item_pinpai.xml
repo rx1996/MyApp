@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/ll_pinpai"
         android:padding="10dp"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"

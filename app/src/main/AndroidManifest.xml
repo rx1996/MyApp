@@ -21,7 +21,8 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".fragment.shopfenlei.FenleiContentActivity" />
         <activity android:name=".activity.ShowImageAndGifActivity" />
-        <activity android:name=".activity.PeopleInfoActivity"></activity>
+        <activity android:name=".activity.PeopleInfoActivity" />
+        <activity android:name=".activity.PinpaiActivity"></activity>
     </application>
 
 </manifest>
