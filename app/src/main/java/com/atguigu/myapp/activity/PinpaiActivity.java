@@ -57,6 +57,7 @@ public class PinpaiActivity extends AppCompatActivity {
     private String name;
     private String id;
     private PinpaiGushiFragment fragment;
+    private PinpaiChanpinFragment chanpinFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,12 @@ public class PinpaiActivity extends AppCompatActivity {
         bundle.putString("id",id);
         Log.e("TAG", "idbundle=="+bundle);
         fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().commit();
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("id",id);
+        Log.e("TAG", "idbundle=="+bundle1);
+        chanpinFragment.setArguments(bundle1);
         getSupportFragmentManager().beginTransaction().commit();
     }
 
@@ -140,8 +147,9 @@ public class PinpaiActivity extends AppCompatActivity {
     private void initFragment() {
 
         fragment = new PinpaiGushiFragment();
+        chanpinFragment = new PinpaiChanpinFragment();
         fragments = new ArrayList<>();
         fragments.add(fragment);
-        fragments.add(new PinpaiChanpinFragment());
+        fragments.add(chanpinFragment);
     }
 }
