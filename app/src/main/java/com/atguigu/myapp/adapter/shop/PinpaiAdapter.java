@@ -2,6 +2,7 @@ package com.atguigu.myapp.adapter.shop;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -75,7 +76,8 @@ public class PinpaiAdapter extends BaseAdapter {
                 Intent intent = new Intent(context,PinpaiActivity.class);
                 intent.putExtra("image",items.get(position).getBrand_logo());
                 intent.putExtra("name",items.get(position).getBrand_name());
-                intent.putExtra("id",items.get(position).getBrand_id());
+                intent.putExtra("id",items.get(position).getBrand_id()+"");
+                Log.e("TAG", "adapter id=="+items.get(position).getBrand_id());
                 context.startActivity(intent);
             }
         });

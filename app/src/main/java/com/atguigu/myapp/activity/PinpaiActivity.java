@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,9 +17,7 @@ import android.widget.TextView;
 import com.atguigu.myapp.R;
 import com.atguigu.myapp.base.BaseFragment;
 import com.atguigu.myapp.fragment.PinpaiGushiFragment;
-import com.atguigu.myapp.fragment.shopfenlei.PinpaiChanpinFragment;
-import com.atguigu.myapp.pager.MagazinePager;
-import com.atguigu.myapp.pager.ShopPager;
+import com.atguigu.myapp.fragment.PinpaiChanpinFragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -56,7 +55,8 @@ public class PinpaiActivity extends AppCompatActivity {
 
     private String image;
     private String name;
-
+    private String id;
+    private PinpaiGushiFragment fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +65,18 @@ public class PinpaiActivity extends AppCompatActivity {
 
         image = getIntent().getStringExtra("image");
         name = getIntent().getStringExtra("name");
+        id = getIntent().getStringExtra("id");
+        Log.e("TAG", "id=="+id);
         initData();
         initFragment();
         rgMain.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
         rgMain.check(R.id.rb_gushi);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("id",id);
+        Log.e("TAG", "idbundle=="+bundle);
+        fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().commit();
     }
 
     private void initData() {
@@ -130,8 +138,10 @@ public class PinpaiActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
+
+        fragment = new PinpaiGushiFragment();
         fragments = new ArrayList<>();
-        fragments.add(new PinpaiGushiFragment());
+        fragments.add(fragment);
         fragments.add(new PinpaiChanpinFragment());
     }
 }

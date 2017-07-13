@@ -2,12 +2,12 @@
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="500dp"
+    android:layout_width="match_parent"
     android:layout_height="200dp">
 
     <ImageView
         android:scaleType="fitXY"
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/image1"
         android:src="@mipmap/ic_launcher" />

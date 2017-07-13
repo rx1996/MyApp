@@ -1,4 +1,4 @@
-package com.atguigu.myapp.fragment.shopfenlei;
+package com.atguigu.myapp.fragment;
 
 import android.graphics.Color;
 import android.view.Gravity;
