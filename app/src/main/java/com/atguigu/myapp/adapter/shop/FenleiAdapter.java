@@ -1,6 +1,7 @@
 package com.atguigu.myapp.adapter.shop;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.atguigu.myapp.R;
 import com.atguigu.myapp.bean.ShopFenleiBean;
+import com.atguigu.myapp.fragment.shopfenlei.FenleiContentActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -46,7 +48,7 @@ public class FenleiAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.item_fenlei, null);
@@ -62,6 +64,14 @@ public class FenleiAdapter extends BaseAdapter {
                 .error(R.drawable.ic_launcher)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.ivFenleiImage);
+        viewHolder.ivFenleiImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, FenleiContentActivity.class);
+                intent.putExtra("id",items.get(position).getCat_id());
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 

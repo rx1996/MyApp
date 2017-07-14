@@ -45,12 +45,6 @@ public class ShopFenleiFragment extends BaseFragment {
     public void initData() {
         super.initData();
         OkHttpUtils.get().url(url).build().execute(new MyStringCallback());
-        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(context, FenleiContentActivity.class));
-            }
-        });
     }
 
 

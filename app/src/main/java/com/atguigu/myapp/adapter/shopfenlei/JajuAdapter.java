@@ -44,7 +44,7 @@ public class JajuAdapter extends RecyclerView.Adapter<JajuAdapter.ViewHolder> {
         JiaJuBean.DataBean.ItemsBean bean = items.get(position);
         holder.tvJiajuName.setText(bean.getGoods_name());
         holder.tvJiaju.setText(bean.getBrand_info().getBrand_name());
-        holder.tvPrice.setText("￥" + bean.getDiscount_price());
+        holder.tvPrice.setText("￥" + bean.getPrice());
         holder.tvLike.setText(bean.getLike_count());
         Glide.with(content)
                 .load(bean.getGoods_image())

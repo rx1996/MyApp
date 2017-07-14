@@ -42,14 +42,19 @@ public class FenleiContentActivity extends AppCompatActivity {
     @Bind(R.id.recyclerview)
     RecyclerView recyclerview;
 
-    private String url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=Android&cat_code=0045&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0";
+
     private JajuAdapter adapter;
-    private Context context;
+    private String id;
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fenlei_content);
         ButterKnife.bind(this);
+        id = getIntent().getStringExtra("id");
+        Log.e("TAG", "id=="+id);
+        url = "http://mobile.iliangcang.com/goods/goodsShare?app_key=Android&cat_code=00"+id+"&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0";
+        Log.e("TAG", "url=="+url);
         initData();
     }
 
